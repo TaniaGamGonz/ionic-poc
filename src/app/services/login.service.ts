@@ -10,7 +10,9 @@ export class LoginService {
     private http: HttpClient
   ) { }
   signIn(user, password){
-    const body = {"user": user, "pass": password};
-    return this.http.post('https://optimizaprocess.net/test/', body);
-  }
+    const formData = new FormData();
+    formData.append('user', user);
+    formData.append('pass', password);
+    return this.http.post('https://optimizaprocess.net/test/', formData);
+}
 }

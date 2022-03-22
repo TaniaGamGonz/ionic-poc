@@ -13,4 +13,9 @@ export class ItemsService {
   getItems(){
    return this.http.get('https://optimizaprocess.net/test/');
   }
+  addVisitToItem(itemId: string){
+    const formData = new FormData();
+    formData.append('item_id', itemId);
+    return this.http.post('https://optimizaprocess.net/test/?o=update_visits', formData);
+  }
 }
